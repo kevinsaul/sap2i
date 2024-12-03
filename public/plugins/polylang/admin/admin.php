@@ -87,7 +87,7 @@ class PLL_Admin extends PLL_Admin_Base {
 
 		// Setup filters for admin pages
 		// Priority 5 to make sure filters are there before customize_register is fired
-		if ( $this->model->get_languages_list() ) {
+		if ( $this->model->has_languages() ) {
 			add_action( 'wp_loaded', array( $this, 'add_filters' ), 5 );
 		}
 	}
@@ -115,7 +115,7 @@ class PLL_Admin extends PLL_Admin_Base {
 	 * @return void
 	 */
 	public function plugin_update_message( $plugin_data, $r ) {
-		if ( isset( $r->upgrade_notice ) ) {
+		if ( ! empty( $r->upgrade_notice ) ) {
 			printf( '<p style="margin: 3px 0 0 0; border-top: 1px solid #ddd; padding-top: 3px">%s</p>', esc_html( $r->upgrade_notice ) );
 		}
 	}
