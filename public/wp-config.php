@@ -36,7 +36,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-define( 'WPCACHEHOME', '/var/www/websites/web500/web/releases/20210908105430/public/plugins/wp-super-cache/' );
+define( 'WPCACHEHOME', '/Users/kevinsaul/Sites/sap2i/public/plugins/wp-super-cache/' );
 $application = new WordPlate\Application(
     realpath(__DIR__.'/../')
 );

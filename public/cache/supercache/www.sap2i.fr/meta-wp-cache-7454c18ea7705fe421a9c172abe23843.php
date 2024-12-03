@@ -1,1 +1,0 @@
-<?php die(); ?>{"headers":{"Vary":"Vary: Accept-Encoding, Cookie","Content-Type":"Content-Type: text\/html; charset=UTF-8","Link":"Link: <https:\/\/www.sap2i.fr\/wp-json\/>; rel=\"https:\/\/api.w.org\/\"","Last-Modified":"Last-Modified: Fri, 03 May 2024 20:59:55 GMT"},"uri":"www.sap2i.fr\/?m=register&p=form","blog_id":1,"post":0,"key":"www.sap2i.fr443\/?m=register&p=form"}
