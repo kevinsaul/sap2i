@@ -1,0 +1,112 @@
+body {
+    .screen-reader-response {
+        display: none;
+    }
+
+    .wpcf7-not-valid-tip {
+        color: $error;
+    }
+
+    .wpcf7-response-output {
+        color: $white;
+        background-color: $success;
+ 
+        &.wpcf7-validation-errors {
+            padding: 15px;
+        }
+
+        &.wpcf7-mail-sent-ok {
+            background-color: $success;
+            padding: 15px;
+        }
+    }
+
+    form {
+
+        .one_field {
+            margin: 5px 0;
+
+            &.inline {
+                display: inline-block;
+                width: calc(50% - 5px);
+
+                .phone, .societe {
+                    margin-left: 5px;
+                }
+            }
+
+            .wpcf7-form-control-wrap {
+                display: block;
+            }
+
+            .sujet {
+                margin-top: 20px;
+            }
+
+            .message {
+                margin-top: 10px;
+            }
+
+            textarea,
+            input[type="number"],
+            input[type="email"],
+            input[type="password"],
+            input[type="text"],
+            input[type="tel"] {
+                outline: none;
+                padding: 5px 15px;
+                border: none;
+                resize: none;
+                width: 100%;
+                font-weight: bold;
+                border-bottom: 2px solid $primary;
+                transition: all .4s;
+
+                &:focus, 
+                &:active {
+                    border-color: $secondary;
+                    color: $secondary;
+                }
+
+                &::placeholder {
+                    color: $grey;
+                    font-weight: normal;
+                }
+
+                &:focus::placeholder,
+                &:active::placeholder {
+                    color: $secondary;
+                }
+            }
+        }
+
+        input[type="submit"] {
+            display: table;
+            margin: 30px auto;
+            background: $white;
+            border: 2px solid $grey;
+            color: $grey;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all ease .3s;
+
+            &:hover {
+                background: $secondary;
+                border-color: $secondary;
+                color: $white;
+            }
+        }
+    }
+}
+
+@media (max-width: $mq-tablet) {
+
+    body form .one_field.inline {
+        display: block;
+        width: 100%;
+
+        .phone, .societe {
+            margin-left: 0;
+        }
+    }
+}

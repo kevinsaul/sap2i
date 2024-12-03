@@ -1,0 +1,110 @@
+/**
+ * Fonts
+ * ------
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600;700&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Encode Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    a:not(.company) {
+        position: relative;
+        color: $primary;
+        text-decoration: none;
+        transition: all .4s;
+
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            display: block;
+            width: 50px;
+            max-width: 60%;
+            height: 1px;
+            content: "";
+            background-color: $white;
+            opacity: 0;
+            transition: all linear .3s;
+            transform: translateX(-50%);
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:hover:after {
+            bottom: -3px;
+            opacity: 1;
+        }
+
+        &.big_btn {
+            display: table;
+            margin: 15px auto;
+            padding: 5px;
+            background: $white;
+            border: 2px solid $grey;
+            color: $grey;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all ease .3s;
+
+            &:hover {
+                background: $secondary;
+                border-color: $secondary;
+                color: $white;
+            }
+        }
+    }
+
+    p {
+        line-height: 1.7;
+    }
+
+    h1, #home h2 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: $primary;
+        text-transform: uppercase;
+        margin-top: 10px;
+        margin-bottom: 30px;
+
+        &:first-letter {
+            font-size: 3rem;
+        }
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        color: $secondary;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+        color: $primary;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: $mq-tablet) {
+    body {
+        h2 {
+            font-size: 2rem;
+
+            &:first-letter {
+                font-size: 2.4rem;
+            }
+        }
+    }
+}
+

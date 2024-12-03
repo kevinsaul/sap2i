@@ -1,0 +1,132 @@
+footer {
+    padding: 60px 0;
+    margin-top: 0;
+    background: url("{$tpl_dir}/assets/images/footer-bg.jpg") center center / cover;
+
+    a {
+        color: $white !important;
+    }
+
+    a:hover {
+        color: $white;
+        text-decoration: none;
+    }
+
+    ul {
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            padding: 0 15px;
+            margin: 5px 0;
+            font-size: 1.3rem;
+            color: $white;
+
+            a {
+                color: $white !important;
+            }
+        }
+
+        &#liens_rapides {
+            margin-top: 20px;
+        }
+    }
+
+    #rev_link {
+        display: block;
+        max-width: 120px;
+        margin-top: 20px;
+
+        svg {
+            max-width: 100%;
+        }
+    }
+
+    address {
+        p,
+        a {
+            position: relative;
+            margin: 15px 0;
+            font-size: 1.6rem;
+            color: $white;
+
+            svg {
+                position: absolute;
+                top: 5px;
+                left: -30px;
+                width: 15px;
+            }
+        }
+    }
+
+    #logo_footer {
+        display: block;
+        max-width: 230px;
+        margin-top: 30px;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: $mq-large-tablet) {
+    footer {
+        #logo_footer {
+            max-width: 170px;
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: $mq-tablet) {
+    footer {
+        padding: 30px 0;
+
+        #logo_footer {
+            margin: auto;
+            max-width: 110px;
+        }
+
+        ul {
+            margin-top: 20px;
+
+            &#liens_rapides {
+                margin-top: 30px;
+                text-align: center;
+            }
+
+            li {
+                padding: 0;
+                font-size: 1.6rem;
+
+                &#conception {
+                    max-width: 130px;
+                    margin-top: -90px;
+                    margin-left: auto;
+                }
+            }
+        }
+
+        address {
+            margin-left: 20%;
+
+            p {
+                font-size: 1.4rem;
+            }
+        }
+
+        #rev_link {
+            margin: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        #datadock {
+            display: block;
+            margin: auto;
+            max-width: 80px;
+        }
+    }
+}

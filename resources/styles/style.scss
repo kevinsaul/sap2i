@@ -1,0 +1,121 @@
+@import './variables.scss';
+
+/**
+ * Package
+ * ------
+ */
+@import '~bootstrap/dist/css/bootstrap-reboot.min.css';
+@import '~bootstrap/dist/css/bootstrap-grid.min.css';
+
+@import './global/typography.scss';
+@import './global/animation.scss';
+
+/**
+ * Global
+ * --------
+ */
+body {
+    #map {
+        min-height: 400px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    @media (max-width: $mq-large-tablet) {
+        &.no-scroll {
+            overflow: hidden;
+        }
+    }
+
+    picture {
+        display: block;
+    }
+
+    iframe {
+        width: 100%;
+        min-height: 600px;
+    }
+
+    .text_env {
+        display: flex;
+        align-items: center;
+    }
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        width: 100%;
+        padding: 0;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
+
+/**
+ * Navigation
+ * --------
+ */
+@import './global/header.scss';
+
+/*
+ * Contenu
+ * GLOBAL
+ * --------
+ */
+main {
+    min-height: calc(100vh - 110px);
+    background-color: $lightgrey;
+}
+
+@import './lib/sections_and_content.scss';
+
+/*
+ * Slider
+ * --------
+ */
+@import './lib/section_slider.scss';
+@if $slider {
+    @include slider;
+}
+
+/*
+ * Banner - Bannière
+ * --------
+ */
+@import './lib/banner.scss';
+
+/*
+ * sociétés - partenaires - companies
+ * --------
+ */
+@import './lib/companies.scss';
+
+/*
+ * actualités - news
+ * --------
+ */
+@import './lib/news.scss';
+
+/*
+ * Form
+ * --------
+ */
+@import './lib/form.scss';
+
+/*
+ * Images en mosaique
+ * --------
+ */
+ @import './lib/img_mosaique.scss';
+
+/*
+ * Plan du site
+ * --------
+ */
+@import './lib/sitemap.scss';
+
+/*
+ * Pied de page
+ * --------------
+ */
+@import './global/footer.scss';

@@ -1,0 +1,107 @@
+#home {
+    .section {
+        .bg_white {
+            .container {
+                .align_certif {
+                    justify-content: space-around;
+                    width: 100%;
+                }
+            }
+        }
+    } 
+
+    .certifications {
+        position: relative;
+        padding: 50px 0;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            padding:0;
+            position: relative;
+            width: 80%;
+
+            .bandeau_bluelight {
+                background-color: #63c3db;
+                color: #fff;
+                display: block;
+                margin-right: 0;
+                margin-left: auto;
+                position: relative;
+                z-index: 1;
+                padding: 0;
+
+                h2 {
+                    margin: 15px 50px;
+                    color: #fff;
+                }
+            }
+        }
+        
+        .bg_white {
+            background-color: #fff;
+            max-width: 80%;
+            margin: 0;
+            padding: 50px 15px;
+            width: 100%;
+            .container {
+                .align_certif {
+                    justify-content: space-around;
+                }
+            }
+        }
+    }
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 1090px;
+
+    .picture-company{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .company {
+            transform: scale(1);
+            transition: all .3s linear;
+            display: block;
+            max-width: 220px;
+            margin: 30px auto;
+
+            &::after {
+                display: none;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            img {
+                max-height: 90px;
+            }
+        }
+    }
+}
+
+#slide-logos-ow {
+    .tns-nav {
+        button {
+            padding: 10px;
+            border: solid #fff;
+
+            &.tns-nav-active {
+                background: #63c3db;
+            }
+        }
+    }
+}

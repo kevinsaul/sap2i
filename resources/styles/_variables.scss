@@ -1,0 +1,34 @@
+/**
+ * Variables
+ * ----------
+ */
+ 
+//Colors
+$primary: #13225b;
+$secondary: #63c3db;
+$white: #ffffff;
+$grey: #2a282d;
+$black: #000000;
+$hover: #e85826;
+$lightgrey: #f4f7f6;
+$success: #27ae60;
+$error: #e74c3c;
+
+/**
+ * Responsive
+ * ----------
+ */
+$mq-large-desktop: 1400px !default;
+$mq-desktop: 1200px !default;
+$mq-large-tablet: 992px !default;
+$mq-tablet: 768px !default;
+$mid-tablet: 555px !default;
+$mq-mobile: 450px !default;
+
+/**
+ * Slider
+ * ----------
+ */
+$slider: false;
+$withNav: true;
+$withControls: true;

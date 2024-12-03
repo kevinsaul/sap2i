@@ -1,0 +1,14 @@
+.pagenav {
+    list-style: none;
+}
+
+.content_map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .map {
+        width: 80%;
+    }
+}

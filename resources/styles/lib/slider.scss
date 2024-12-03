@@ -1,0 +1,65 @@
+@mixin slider {
+    #home_slider {
+        position: relative;
+
+        .tns-outer {
+            .home_slider {
+                height: 100%;
+
+                .item {
+                    height: 100vh;
+                }
+            }
+        }
+    }
+
+    .tns-outer {
+        position: relative;
+
+        @if $withNav {
+            .tns-nav {
+                position: absolute;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                button {
+                    border: none;
+                    padding: 0;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin: 0 5px;
+                    outline: none;
+
+                    &.tns-nav-active {
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+
+        @if $withControls {
+            .tns-controls {
+                button {
+                    z-index: 2;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border: none;
+                    background-color: $primary;
+                    color: $white;
+                    padding: 10px 40px;
+
+                    &[data-controls="prev"] {
+                        left: 0;
+                    }
+
+                    &[data-controls="next"] {
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

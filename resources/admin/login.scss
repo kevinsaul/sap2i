@@ -1,0 +1,140 @@
+@import '../styles/variables.scss';
+
+body {
+    background: url(../images/signinbg.jpg) no-repeat center center / cover !important;
+    
+    #login {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        width: 25%;
+        height: 100vh;
+        padding: 8% 0 0;
+        padding-top: 0;
+        margin: auto;
+        flex-direction: column;
+        background: #FFFFFF;
+        box-shadow: 8px 0 8px -10px #000000,-8px 0 8px -10px #000000;
+        justify-content: center;
+    
+        h1 {
+            a {
+                background-image: url(../images/logo.svg) !important;
+            }
+        }
+
+        input#wp-submit {
+            width: 100%;
+            height: auto;
+            padding: 5px 0;
+            margin-top: 10px;
+            text-shadow: none;
+            background: rgba($primary, 0.8);
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+
+            &:hover {
+                background: $primary!important;
+                border-color: $primary!important;
+            }
+        }
+
+        input[type=text]:focus,
+        input[type=search]:focus,
+        input[type=radio]:focus,
+        input[type=tel]:focus,
+        input[type=time]:focus,
+        input[type=url]:focus,
+        input[type=week]:focus,
+        input[type=password]:focus,
+        input[type=checkbox]:focus,
+        input[type=color]:focus,
+        input[type=date]:focus,
+        input[type=datetime]:focus,
+        input[type=datetime-local]:focus,
+        input[type=email]:focus,
+        input[type=month]:focus,
+        input[type=number]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: rgba($primary, 0.8);
+            box-shadow: none;
+        }
+
+        #backtoblog {
+            margin: 8px 0;
+            text-align: center;
+            
+            a {
+                color: #202020;
+            }
+        }
+
+        #nav {
+            margin: 15px 0 0;
+            text-align: center;
+
+            a {
+                color: #202020;
+            }
+        }
+        
+        form {
+            padding-bottom: 0;
+            margin-top: 0;
+            box-shadow: none;
+            border: none;
+        }
+    }
+    
+    .login {
+        h1 {
+            a {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 150px;
+                margin: 0;
+                background-size: auto 100%;
+                transform: none;
+            }
+        }
+        
+        #login_error,
+        .message,
+        .success {
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+
+        .privacy-policy-page-link {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+@media (max-width: 1250px) {
+    #login {
+        width: 35%;
+    }
+}
+
+@media (max-width: 992px) {
+    #login {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    #login {
+        width: 100%;
+    }
+
+    .login h1 a {
+        min-height: 100px;
+    }
+}
