@@ -1,0 +1,35 @@
+{
+    "name": "revelateur/bladerunner",
+    "type": "wordpress-plugin",
+    "description": "WordPress Blade L5 template engine for starter with Wordplate",
+    "keywords": ["laravel", "blade", "wordpress"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Agence Révélateur",
+            "email": "contact@revelateur.fr"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/config": "^8.6",
+        "illuminate/view": "^8.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bladerunner\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bladerunner\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.8"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

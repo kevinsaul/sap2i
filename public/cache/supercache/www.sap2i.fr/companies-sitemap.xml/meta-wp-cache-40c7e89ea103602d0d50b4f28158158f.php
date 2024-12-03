@@ -1,0 +1,1 @@
+<?php die(); ?>{"headers":{"Vary":"Vary: Accept-Encoding, Cookie","X-Robots-Tag":"X-Robots-Tag: noindex, follow","Content-Type":"Content-Type: text\/xml; charset=UTF-8","Last-Modified":"Last-Modified: Mon, 11 Nov 2024 09:51:52 GMT"},"uri":"www.sap2i.fr\/companies-sitemap.xml","blog_id":1,"post":0,"key":"www.sap2i.fr443\/companies-sitemap.xml"}
