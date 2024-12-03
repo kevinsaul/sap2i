@@ -90,5 +90,8 @@ $application->run();
 |
 */
 
+define('ACF_PRO_LICENSE', env('ACF_PRO_LICENSE_KEY'));
+
+
 require_once ABSPATH.'wp-settings.php';
 define('FS_METHOD', 'direct');

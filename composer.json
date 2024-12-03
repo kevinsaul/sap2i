@@ -16,10 +16,10 @@
         "ralouphie/mimey": "^2.1",
         "revelateur/bladerunner": "^1.8",
         "spatie/image-optimizer": "^1.2",
+        "wpengine/advanced-custom-fields-pro": "*",
         "wordplate/acf": "^8.2",
         "wordplate/framework": "9.1",
         "wpackagist-plugin/adminimize": "^1.11",
-        "wpackagist-plugin/advanced-custom-fields-pro": "*",
         "wpackagist-plugin/classic-editor": "^1.5",
         "wpackagist-plugin/contact-form-7": "^5.1",
         "wpackagist-plugin/polylang": "^3.0.6",
@@ -37,7 +37,8 @@
         "installer-paths": {
             "public/mu-plugins/{$name}": [
                 "type:wordpress-muplugin",
-                "revelateur/bladerunner"
+                "revelateur/bladerunner",
+                "wpengine/advanced-custom-fields-pro"
             ],
             "public/plugins/{$name}": [
                 "type:wordpress-plugin"
@@ -67,16 +68,8 @@
             "url": "https://wp-languages.github.io"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "wpackagist-plugin/advanced-custom-fields-pro",
-                "type": "wordpress-muplugin",
-                "version": "5.8.0",
-                "dist": {
-                    "url": "https://connect.advancedcustomfields.com/index.php?v=5.8.0&p=pro&a=download&k=b3JkZXJfaWQ9MTI5ODUxfHR5cGU9ZGV2ZWxvcGVyfGRhdGU9MjAxOC0wNC0yMyAxMjo1MzoxNw==",
-                    "type": "zip"
-                }
-            }
+            "type": "composer",
+            "url": "https://connect.advancedcustomfields.com"
         }
     ],
     "scripts": {
