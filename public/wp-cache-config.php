@@ -5,6 +5,7 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wp_cache_debug_username = 'd7f595d0f74693eaf0657ed2aa455c68';
 $cache_page_secret = 'f943082c92aee023b4f558abf80ba494';
 $wp_cache_home_path = '/wordpress/';
 $wp_cache_slash_check = 1;
@@ -64,7 +65,7 @@ $wp_cache_debug_to_file = 0;
 $wp_super_cache_debug = 0;
 $wp_cache_debug_level = 5;
 $wp_cache_debug_ip = '';
-$wp_cache_debug_log = '';
+$wp_cache_debug_log = '1e8fb726b5e10fd2b1b9583a0f8250d1.php';
 $wp_cache_debug_email = '';
 $wp_cache_pages[ "search" ] = 0;
 $wp_cache_pages[ "feed" ] = 0;
