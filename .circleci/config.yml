@@ -1,0 +1,129 @@
+version: 2.1
+
+executors:
+  php:
+    docker:
+      - image: cimg/php:7.4.1-browsers
+    working_directory: ~/project
+
+jobs:
+  build_vendor:
+    executor: php
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:RvzFltmGZ0I33CBa5AVgHbJ6z51+d0JMSFsMX53mX4I"
+      - attach_workspace:
+          at: ~/project
+      - run: sudo rm /etc/apt/sources.list.d/google-chrome.list
+      - run: sudo apt update
+      - run: sudo apt install -y libzip-dev zlib1g-dev libpng-dev libxml2-dev
+      - run: sudo apt-get install -y libmagickwand-dev --no-install-recommends
+      - run: sudo apt-get install -y libmcrypt-dev
+      - run: printf "\n" | sudo pecl install imagick
+      - run: printf "\n" | sudo pecl install apcu
+      - restore_cache:
+          keys:
+            - vendor-cache-{{ .Branch }}-{{ checksum "composer.lock" }}
+      - run: composer install
+      - save_cache:
+          key: vendor-cache-{{ .Branch }}-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+      - persist_to_workspace:
+          root: .
+          paths:
+            - vendor
+            - public/mu-plugins/
+            - public/plugins/
+            - public/wordpress/
+
+  build_npm:
+    executor: php
+    environment:
+      - WP_DEFAULT_THEME : sap2i
+      - WP_DOMAIN : www.sap2i.fr
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - restore_cache:
+          keys:
+            - npm-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - run: npm run build
+      - save_cache:
+          key: npm-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - public/
+            - node_modules
+
+
+  deploy: &deploy
+    executor:          php
+    working_directory: ~/project
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run: sudo rm /etc/apt/sources.list.d/google-chrome.list
+      - run: sudo apt update
+      - run: sudo apt install -y rsync
+      - run: cat .circleci/ssh.config >> ~/.ssh/config
+      - run:
+          name:    Deploy SSH
+          command: rsync -avzC --exclude-from=.circleci/rsync_exclude.txt --delete -e "ssh -p22" . $PLATFORM:~/$FOLDER --include "core"
+      - run:
+          name:    Clear varnish
+          command: curl -X BAN "$HOST"
+  deploy_prod:
+    <<: *deploy
+    environment:
+      - FOLDER: francas_doubs
+      - PLATFORM: prod
+      - PHP: php8.1
+      - HOST: francas-doubs.fr
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build_vendor: &build
+          filters: &pp_filters
+            branches:
+              only:
+                - /^release.*/
+                - /^hotfix.*/
+                - /^main/
+            tags:
+              ignore: /.*/
+      - build_npm:
+          <<: *build
+          requires:
+            - build_vendor
+      # - deploy_pp:
+      #     requires: &requires_build
+      #       - build_vendor
+      #       - build_npm
+      #     filters: *pp_filters
+      - request_deploy:
+          filters: &prod_filters
+            branches:
+              only:
+                - /^main/
+                #- /^release.+-rc.*$/ # Pour les nouveaux projet pas encore livré
+            tags:
+              ignore: /.*/
+          type: approval
+          requires:
+            - build_vendor
+            - build_npm
+      - deploy_prod:
+          requires:
+            - request_deploy
+          filters: *prod_filters
