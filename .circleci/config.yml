@@ -3,7 +3,7 @@ version: 2.1
 executors:
   php:
     docker:
-      - image: cimg/php:7.4.1-browsers
+      - image: cimg/php:7.4-browsers
     working_directory: ~/project
 
 jobs:
